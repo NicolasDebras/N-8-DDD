@@ -16,10 +16,8 @@ export class NightTurn{
     startNight(playerList:Player[]):Player[]{
         //cupid on first turn
         if( this.nbNight === 1){
-            console.log("Cupidon")
             let cupid = findPlayerByRole(ERoles.CUPID, playerList)[0]
             if (cupid.role instanceof Cupid){
-                console.log("Cupidon")
                 let lovers=cupid.role.makeAction(playerList)
                 playerList[lovers[0]].isInLove=true
                 playerList[lovers[1]].isInLove=true
@@ -27,7 +25,6 @@ export class NightTurn{
         }
 
         //voyante
-        console.log("voyante")
         let seerFind = findPlayerByRole(ERoles.SEER,playerList)
         if(seerFind.length ==1){
             let seer = seerFind[0]
@@ -39,7 +36,6 @@ export class NightTurn{
         
         
         //guard
-        console.log("guard")
         let _protected : Player | null = null;
         let guardFind = findPlayerByRole(ERoles.GUARD,playerList)
         if( guardFind.length > 0){
@@ -52,18 +48,16 @@ export class NightTurn{
         }
 
         //Wolf Vote
-        console.log("wolf vote")
         let wolfTarget = new WolfVote(playerList).startVote()
-        let wolftargetIndex = playerList.findIndex((player)=>{player==wolfTarget})
+        let wolftargetIndex = playerList.indexOf(wolfTarget)
         let isDead
         if(!_protected) {
             isDead=true
         }else{
-            isDead=(wolfTarget==_protected)
+            isDead=(wolfTarget.name!==_protected.name)
         }
 
         //ipdl
-        console.log("ipdl")
         if(isDead){
             let ipdlFind = findPlayerByRole(ERoles.INFECT_WEREWOLF ,playerList)
             if ( ipdlFind.length > 0){
@@ -81,7 +75,6 @@ export class NightTurn{
         }
 
         //loup blanc
-        console.log("loup blanc")
         if(this.nbNight%2 === 0){
             
             let whiteFind=findPlayerByRole(ERoles.WHITE_WEREWOLF ,playerList)
@@ -99,7 +92,6 @@ export class NightTurn{
         }
         
         //witch
-        console.log("Witch")
         let witchFind = findPlayerByRole(ERoles.WITCH ,playerList)
         if (witchFind.length > 0){
             let witch = witchFind[0];
@@ -115,7 +107,6 @@ export class NightTurn{
         if(isDead)playerList[wolftargetIndex].isAlive=false
         this.nbNight++
     
-        console.log("end")
         return playerList
     }
 }

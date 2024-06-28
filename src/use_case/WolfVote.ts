@@ -1,6 +1,6 @@
 import { ECamps } from "../enums/ECamps";
 import { Player } from "../models/Player";
-import { selectVotePlayer } from "../tools/tool";
+import { chooseAnswer, selectVotePlayer } from "../tools/tool";
 
 export class WolfVote{
 
@@ -27,7 +27,7 @@ export class WolfVote{
         if (selectedPlayer == null) {
             return this.startVote();
         } 
-        return selectedPlayer
+        return this.allPlayer[chooseAnswer(this.allPlayer)]
     }
     
 
