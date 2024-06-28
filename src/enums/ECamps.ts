@@ -1,5 +1,6 @@
 export enum ECamps {
     SOLO,
     VILLAGER,
-    WEREWOLF
+    WEREWOLF,
+    WOLF
 }
