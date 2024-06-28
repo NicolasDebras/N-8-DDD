@@ -1,28 +1,28 @@
 // Sorcière
 
 import { ECamps } from "../../enums/ECamps";
+import { ERoles } from "../../enums/ERoles";
 import { Player } from "../Player";
+import { Roles } from "../Roles";
 
-export class Witch extends Player {
-    constructor(player: Player) {
-        super(player.name, player.role, ECamps.VILLAGER);
+export class Witch extends Roles {
+    constructor() {
+        super(ERoles.WITCH,"whitch");
     }
 
     gotHealthPotion: boolean = true;
     gotDeathPotion: boolean = true;
 
     useHealthPotion(player: Player) {
-        player.isAlive = true;
         this.gotHealthPotion = false;
     }
 
     useDeathPotion(player: Player) {
-        player.isAlive = false;
         this.gotDeathPotion = false;
     }
 
     havePotions() : boolean {
-        return this.gotHealthPotion && this.gotDeathPotion
+        return this.gotHealthPotion || this.gotDeathPotion
     }
 
 }

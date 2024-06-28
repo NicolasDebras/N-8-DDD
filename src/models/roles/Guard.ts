@@ -1,13 +1,15 @@
 // Garde
 
 import { ECamps } from "../../enums/ECamps";
+import { ERoles } from "../../enums/ERoles";
 import { Player } from "../Player";
+import { Roles } from "../Roles";
 
-export class Guard extends Player {
+export class Guard extends Roles {
     lastProtected: Player | null = null;
 
-    constructor(player: Player) {
-        super(player.name, player.role, ECamps.VILLAGER);
+    constructor() {
+        super(ERoles.GUARD, "Guard");
     }
 
     protectPlayer(player: Player) : boolean {

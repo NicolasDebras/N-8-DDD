@@ -2,11 +2,12 @@
 import { ECamps } from "../../enums/ECamps";
 import { ERoles } from "../../enums/ERoles";
 import { Player } from "../Player";
+import { Roles } from "../Roles";
 
-export class WhiteWereWolf extends Player {
+export class WhiteWereWolf extends Roles {
 
-    constructor(player: Player) {
-        super(player.name, player.role, ECamps.SOLO);
+    constructor() {
+        super(ERoles.WHITE_WEREWOLF, "whi");
     }
 
     killOtherWereWolf(player: Player) : Player | null {

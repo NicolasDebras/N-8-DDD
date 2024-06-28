@@ -11,8 +11,10 @@ import { WolfVote } from "./WolfVote";
 import { WhiteWereWolf } from "../models/roles/WhiteWereWolf";
 
 export class NightTurn{
-    nbNight=1;
+    nbNight = 1;
+
     startNight(playerList:Player[]):Player[]{
+        let cupidd=new Cupid("toto")
         let res:Player[]=[]
         //cupid on first turn
         if( this.nbNight ===1){
@@ -26,24 +28,11 @@ export class NightTurn{
         }
 
         //voyante
-        let seerFind = findPlayerByRole(ERoles.SEER,playerList)
-        if( seerFind.length === 0){
-            let target=playerList[chooseAnswer(playerList)]
-            let seer=seerFind[0] as Seer
-            seer.seeCardOfPlayer(target)
-        }
-
+       this.seerAction(playerList);
+        
         //guard
-        let guardFind = findPlayerByRole(ERoles.GUARD,playerList)
-        let _protected : Player|null=null;
-        if( guardFind.length === 0){
-            let protect:boolean = false;
-            let guard=guardFind[0] as Guard
-            do{
-                _protected = playerList[chooseAnswer(playerList)]
-                protect=guard.protectPlayer(_protected)
-            }while(!protect)
-        }
+        let _protected : Player | null = null;
+        _protected = this.guardAction(playerList);
 
         //Wolf Vote
         let wolfTarget=new WolfVote(playerList).startVote()
@@ -89,21 +78,61 @@ export class NightTurn{
         let witchFind = findPlayerByRole(ERoles.WITCH ,playerList)
         if (witchFind.length === 0){
             let witch = witchFind[0] as Witch;
-            if (witch.havePotions()) {
-                let potionToUse = chooseAnswer(["vie", "mort", "annuler"])
+            let choice=[]
+            if(isDead && witch.gotHealthPotion) choice.push("vie")
+            if(witch.gotDeathPotion) choice.push("mort")
+            if (witch.havePotions() && choice.length > 0) {
+                choice.push("annuler")
+                let potionToUse = chooseAnswer(choice)
 
                 // 0 -> Potion de vie
                 // 1 -> Potion de mort
                 if(potionToUse === 0) {
                     witch.useHealthPotion(wolfTarget)
+                    isDead=false
                 } else if(potionToUse === 1) {
-                    let choice = chooseAnswer(playerList.filter((player: Player) => player.role.name !== ERoles.WITCH))
-                    witch.useDeathPotion(playerList[choice])
+                    let list=playerList.filter((player: Player) => player.role.name !== ERoles.WITCH)
+                    let choice = chooseAnswer(list)
+                    res.push(list[choice])
+                    witch.useDeathPotion(list[choice])
                 }
             }
         }
-        
+        if(isDead)res.push(wolfTarget)
         this.nbNight++
         return res
     }
+
+    seerAction(playerList:Player[]) : string  | null
+    {
+        let seerFind = findPlayerByRole(ERoles.SEER,playerList)
+        if( seerFind.length === 0){
+            let target = playerList[chooseAnswer(playerList)]
+            let seer = seerFind[0] as Seer
+            let targetRoleName = seer.seeCardOfPlayer(target)
+            return targetRoleName;
+        }
+        return null;
+    }
+
+    guardAction(playerList:Player[]  ): Player | null {
+
+        let guardFind = findPlayerByRole(ERoles.GUARD,playerList)
+        let _protected : Player | null = null;
+        if( guardFind.length === 0){
+            let protect:boolean = false;
+            let guard=guardFind[0] as Guard
+            do{
+                _protected = playerList[chooseAnswer(playerList)]
+                protect=guard.protectPlayer(_protected)
+            } while (!protect)
+        }
+        return _protected
+    }
+
+
+
+
+
+
 }

@@ -1,12 +1,14 @@
 // Loup garou
 
 import { ECamps } from "../../enums/ECamps";
+import { ERoles } from "../../enums/ERoles";
 import { Player } from "../Player";
+import { Roles } from "../Roles";
 
-export class WereWolf extends Player {
+export class WereWolf extends Roles {
 
-    constructor(player: Player) {
-        super(player.name, player.role, ECamps.WEREWOLF);
+    constructor() {
+        super( ERoles.WEREWOLF, "werewolf");
     }
 
 }

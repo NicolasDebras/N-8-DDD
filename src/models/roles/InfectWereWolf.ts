@@ -1,14 +1,16 @@
 // Infect Père des Loups
 
 import { ECamps } from "../../enums/ECamps";
+import { ERoles } from "../../enums/ERoles";
 import { Player } from "../Player";
+import { Roles } from "../Roles";
 
-export class InfectWereWolf extends Player{
+export class InfectWereWolf extends Roles{
 
     haveInfected : boolean = false;
 
-    constructor(player: Player) {
-        super(player.name, player.role, ECamps.VILLAGER);
+    constructor() {
+        super( ERoles.INFECT_WEREWOLF, "IPDL");
     }
 
     getHaveInfected() : boolean  {
