@@ -6,12 +6,13 @@
   "scripts": {
     "init": "npx tsc",
     "compile-dev-mac": "rm -rf dist && npm run init",
-    "start-dev-mac": "npm run compile-dev-mac && node dist/src/main.js dev",
+    "start-dev-mac": "npm run compile-dev-mac && node dist/main.js dev",
     "compile-dev-win": "rd /s /q dist && npm run init",
-    "start-dev-win": "npm run compile-dev-win && node dist/src/main.js dev",
+    "start-dev-win": "npm run compile-dev-win && node dist/main.js dev",
     "compile-prod": "rm -rf dist && npm run init",
-    "start-prod": "npm run compile-prod && node dist/src/main.js prod",
-    "start-test": "ts-node src/main.ts"
+    "start-prod": "npm run compile-prod && node dist/main.js prod",
+    "start-test": "ts-node src/main.ts",
+    "test": "jest --config ./jest.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "express": "^4.18.2",
     "express-basic-auth": "^1.2.1",
     "jest": "^29.7.0",
+    "ts-jest": "^29.1.5",
     "typescript": "^5.0.4"
   },
   "devDependencies": {

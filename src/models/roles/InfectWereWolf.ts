@@ -2,6 +2,7 @@
 
 import { ECamps } from "../../enums/ECamps";
 import { ERoles } from "../../enums/ERoles";
+import { chooseAnswer } from "../../tools/tool";
 import { Player } from "../Player";
 import { Roles } from "../Roles";
 
@@ -18,8 +19,13 @@ export class InfectWereWolf extends Roles{
     }
 
     infect(infect : Player) {
-        this.haveInfected = true;
-        infect.camp = ECamps.WEREWOLF;
+        let infectAnswer = chooseAnswer([infect.name, "NON"])
+        if(infectAnswer==0){
+            this.haveInfected = true;
+            return true
+        }else{
+            return false
+        }
     }
     
 }

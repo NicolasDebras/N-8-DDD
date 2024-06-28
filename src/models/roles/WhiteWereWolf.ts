@@ -1,6 +1,7 @@
 // Loup Garou blanc
 import { ECamps } from "../../enums/ECamps";
 import { ERoles } from "../../enums/ERoles";
+import { chooseAnswer } from "../../tools/tool";
 import { Player } from "../Player";
 import { Roles } from "../Roles";
 
@@ -10,12 +11,13 @@ export class WhiteWereWolf extends Roles {
         super(ERoles.WHITE_WEREWOLF, "whi");
     }
 
-    killOtherWereWolf(player: Player) : Player | null {
-        if(player.role.name === ERoles.WEREWOLF) {
-            return player;
+    killOtherWereWolf(wolfList: Player[],_protected:Player| null) : number  {
+        let target = chooseAnswer(wolfList)
+        if(!_protected)return target
+        if(wolfList[target]==_protected){
+            return -1
         }
-
-        return null;
+        return target
     }
 
 }
