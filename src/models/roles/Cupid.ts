@@ -17,6 +17,7 @@ export class Cupid extends Roles {
         do{
             couplea = chooseAnswer(playerList)
             coupleb = chooseAnswer(playerList)
+            console.log(couplea,coupleb)
         }while(couplea == coupleb)
             this.lovers=[playerList[couplea],playerList[coupleb]]
         return [couplea, coupleb]

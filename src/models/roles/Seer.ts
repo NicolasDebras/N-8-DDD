@@ -16,7 +16,7 @@ export class Seer extends Roles {
         let player : number;
         do{
             player = chooseAnswer(playerList)
-        }while(player>=0 && player<playerList.length)
+        }while(player<0 && player>playerList.length)
         return player
     }
 

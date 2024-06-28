@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for test/utils.ts</title>
+    <title>Code coverage report for use_case/WolfVote.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">test</a> utils.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">use_case</a> WolfVote.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
@@ -90,61 +90,79 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Player } from "../models/Player";
-import { Cupid } from "../models/roles/Cupid";
-import { Guard } from "../models/roles/Guard";
-import { ERoles } from "../enums/ERoles";
-import { ECamps } from "../enums/ECamps";
-import { Hunter } from "../models/roles/Hunter";
-import { Seer } from "../models/roles/Seer";
-import { LittleGirl } from "../models/roles/LittleGirl";
-import { SimpleVillager } from "../models/roles/SimpleVillager";
-import { Witch } from "../models/roles/Witch";
-import { InfectWereWolf } from "../models/roles/InfectWereWolf";
-import { WhiteWereWolf } from "../models/roles/WhiteWereWolf";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ECamps } from "../enums/ECamps";
+import { Player } from "../models/Player";
+import { selectVotePlayer } from "../tools/tool";
 &nbsp;
-export function initializePlayers(): Player[] {
-    return  [ new Player('Alice', new Cupid(), ECamps.VILLAGER)
-            , new Player('Bob', new Hunter(), ECamps.VILLAGER)
-            , new Player('Charlie', new Guard(), ECamps.VILLAGER)
-            , new Player('David', new Seer(), ECamps.VILLAGER)
-            , new Player('Eve', new InfectWereWolf(), ECamps.WEREWOLF)
-            , new Player('Frank', new WhiteWereWolf(), ECamps.SOLO)
-            , new Player('Grace', new Witch(), ECamps.VILLAGER)
-            , new Player('Hugo', new SimpleVillager(), ECamps.VILLAGER)
-            , new Player('Bastien', new LittleGirl(), ECamps.VILLAGER)
-            , new Player('Ines', new SimpleVillager(), ECamps.VILLAGER)
-        ]
+export class WolfVote{
 &nbsp;
-}
-&nbsp;</pre></td></tr></table></pre>
+    allPlayer: Player[];
+    wolfs : Player[] ;
+&nbsp;
+    constructor (allPlayer: Player[]) {
+        this.allPlayer = allPlayer;
+        this.wolfs = allPlayer.filter((element) =&gt; element.camp == ECamps.WEREWOLF )
+    }
+&nbsp;
+    startVote() : Player {
+&nbsp;
+        let choicePlayer : Player[] = [];
+        let selectedPlayer : Player | null = null;
+&nbsp;
+        // ajoute des Player dans la liste des votes 
+        this.wolfs.forEach((player: Player) =&gt; {
+            choicePlayer.push(player.vote(this.allPlayer))
+        });
+        
+        selectedPlayer = selectVotePlayer(choicePlayer, this.allPlayer)
+        
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (selectedPlayer == null) {
+<span class="cstat-no" title="statement not covered" >            return this.startVote();</span>
+        } 
+        return selectedPlayer
+    }
+    
+&nbsp;
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

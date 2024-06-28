@@ -14,11 +14,12 @@ export class NightTurn{
     nbNight = 1;
 
     startNight(playerList:Player[]):Player[]{
-        let res:Player[]=[]
         //cupid on first turn
-        if( this.nbNight ===1){
+        if( this.nbNight === 1){
+            console.log("Cupidon")
             let cupid = findPlayerByRole(ERoles.CUPID, playerList)[0]
             if (cupid.role instanceof Cupid){
+                console.log("Cupidon")
                 let lovers=cupid.role.makeAction(playerList)
                 playerList[lovers[0]].isInLove=true
                 playerList[lovers[1]].isInLove=true
@@ -26,13 +27,32 @@ export class NightTurn{
         }
 
         //voyante
-        this.seerAction(playerList);
+        console.log("voyante")
+        let seerFind = findPlayerByRole(ERoles.SEER,playerList)
+        if(seerFind.length ==1){
+            let seer = seerFind[0]
+            if(seer.role instanceof Seer){
+                let targetPlayer = seer.role.selectPlayer(playerList)
+                seer.role.getRole(playerList[targetPlayer].role.name)  
+            }
+        }
+        
         
         //guard
+        console.log("guard")
         let _protected : Player | null = null;
-        _protected = this.guardAction(playerList);
+        let guardFind = findPlayerByRole(ERoles.GUARD,playerList)
+        if( guardFind.length > 0){
+            let guard = guardFind[0]
+            if(guard.role instanceof Guard){
+                let targetPlayer = 0;
+                targetPlayer = guard.role.protectPlayer(playerList)
+                _protected=playerList[targetPlayer]
+            }
+        }
 
         //Wolf Vote
+        console.log("wolf vote")
         let wolfTarget = new WolfVote(playerList).startVote()
         let wolftargetIndex = playerList.findIndex((player)=>{player==wolfTarget})
         let isDead
@@ -43,9 +63,10 @@ export class NightTurn{
         }
 
         //ipdl
+        console.log("ipdl")
         if(isDead){
             let ipdlFind = findPlayerByRole(ERoles.INFECT_WEREWOLF ,playerList)
-            if ( ipdlFind.length === 0){
+            if ( ipdlFind.length > 0){
                 let ipdl = ipdlFind[0];
                 if(ipdl.role instanceof InfectWereWolf){
                     if(!ipdl.role.getHaveInfected()){
@@ -60,9 +81,11 @@ export class NightTurn{
         }
 
         //loup blanc
+        console.log("loup blanc")
         if(this.nbNight%2 === 0){
+            
             let whiteFind=findPlayerByRole(ERoles.WHITE_WEREWOLF ,playerList)
-            if( whiteFind.length === 0){
+            if( whiteFind.length > 0){
                 let white = whiteFind[0];
                 if(white.role instanceof WhiteWereWolf){
                     let wolfList = findPlayerByRole(ERoles.WEREWOLF,playerList)
@@ -76,8 +99,9 @@ export class NightTurn{
         }
         
         //witch
+        console.log("Witch")
         let witchFind = findPlayerByRole(ERoles.WITCH ,playerList)
-        if (witchFind.length === 0){
+        if (witchFind.length > 0){
             let witch = witchFind[0];
             if(witch.role instanceof Witch){
                 let witchAction=witch.role.makeAction(playerList,isDead)
@@ -91,40 +115,7 @@ export class NightTurn{
         if(isDead)playerList[wolftargetIndex].isAlive=false
         this.nbNight++
     
+        console.log("end")
         return playerList
     }
-
-    seerAction(playerList:Player[]) : void    {
-        let seerFind = findPlayerByRole(ERoles.SEER,playerList)
-        if(seerFind.length === 0){
-            let seer = seerFind[0]
-            if(seer.role instanceof Seer){
-                console.log("Voyante, choisissez un joueur à voir");
-                let targetPlayer = seer.role.selectPlayer(playerList)
-                seer.role.getRole(playerList[targetPlayer].role.name)  
-            }
-        }
-    }
-
-    guardAction(playerList:Player[]  ): Player | null {
-
-        let guardFind = findPlayerByRole(ERoles.GUARD,playerList)
-        let targetPlayer = 0;
-        if( guardFind.length === 0){
-            let protect:boolean = false;
-            let guard = guardFind[0]
-            if(guard.role instanceof Guard){
-                targetPlayer = guard.role.protectPlayer(playerList)
-            }
-        }
-        return playerList[targetPlayer]
-    }
-
-    
-
-
-
-
-
-
 }

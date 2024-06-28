@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for test/utils.ts</title>
+    <title>Code coverage report for models/roles/Cupid.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">test</a> utils.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">models/roles</a> Cupid.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -87,64 +87,55 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Player } from "../models/Player";
-import { Cupid } from "../models/roles/Cupid";
-import { Guard } from "../models/roles/Guard";
-import { ERoles } from "../enums/ERoles";
-import { ECamps } from "../enums/ECamps";
-import { Hunter } from "../models/roles/Hunter";
-import { Seer } from "../models/roles/Seer";
-import { LittleGirl } from "../models/roles/LittleGirl";
-import { SimpleVillager } from "../models/roles/SimpleVillager";
-import { Witch } from "../models/roles/Witch";
-import { InfectWereWolf } from "../models/roles/InfectWereWolf";
-import { WhiteWereWolf } from "../models/roles/WhiteWereWolf";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Cupidon
 &nbsp;
-export function initializePlayers(): Player[] {
-    return  [ new Player('Alice', new Cupid(), ECamps.VILLAGER)
-            , new Player('Bob', new Hunter(), ECamps.VILLAGER)
-            , new Player('Charlie', new Guard(), ECamps.VILLAGER)
-            , new Player('David', new Seer(), ECamps.VILLAGER)
-            , new Player('Eve', new InfectWereWolf(), ECamps.WEREWOLF)
-            , new Player('Frank', new WhiteWereWolf(), ECamps.SOLO)
-            , new Player('Grace', new Witch(), ECamps.VILLAGER)
-            , new Player('Hugo', new SimpleVillager(), ECamps.VILLAGER)
-            , new Player('Bastien', new LittleGirl(), ECamps.VILLAGER)
-            , new Player('Ines', new SimpleVillager(), ECamps.VILLAGER)
-        ]
+import { ECamps } from "../../enums/ECamps";
+import { ERoles } from "../../enums/ERoles";
+import { chooseAnswer } from "../../tools/tool";
+import { Player } from "../Player";
+import { Roles } from "../Roles";
 &nbsp;
-}
-&nbsp;</pre></td></tr></table></pre>
+export class Cupid extends Roles {
+    lovers:Player[]|null=null;
+    constructor() {
+        super(ERoles.CUPID, "Cupidon" );
+    }
+&nbsp;
+    makeAction(playerList:Player[]){
+        let couplea:number,coupleb:number
+        do{
+            couplea = chooseAnswer(playerList)
+            coupleb = chooseAnswer(playerList)
+            console.log(couplea,coupleb)
+        }while(couplea == coupleb)
+            this.lovers=[playerList[couplea],playerList[coupleb]]
+        return [couplea, coupleb]
+    }
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
@@ -153,14 +144,14 @@ export function initializePlayers(): Player[] {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2024-06-28T13:15:03.843Z
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     
